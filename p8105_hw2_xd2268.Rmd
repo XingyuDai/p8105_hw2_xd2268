@@ -1,6 +1,6 @@
 ---
 title: "p8105 Homework 2"
-output: html_document
+output: github_document
 ---
 
 ```{r}
@@ -228,8 +228,9 @@ Join the datasets by merging `snp` into `pols`, and merging `unemployment` into 
 ```{r}
 result1 = full_join(pols_df, snp_df)
 final_version = full_join(result1, unemployment)
+final_version
 ```
 
 The first raw dataset pols-month.csv contains 9 variablea. The `mon` indicates the year, month, and day. Other columns such as gov_gop and sen_dem are included. We created a `president` variable taking values gop and dem. The second dataset `snp` also has the `date` variable with 2-digit years. It has another column named `close`. The `unemployment` dataset has the `Year` variable and other 12 columns named by 12 months. This table reports the unemployment rate of each month in every year. We converted this dataset from `wide` to `long`.
 
-We got the resulting dataset `final_version`. It has `r nrow(final_version)` rows * `r ncol(final_version)` columns. The year range is from 1947 to 2015. The resulting dataset is merged from the 3 datasets above by `year` and `month`. variables `gov_gop`, `sen_gop`, `rep_gop`, `gov_dem`, `sen_dem`, `rep_dem`, `president`, `close`, and `unemployment` are retained.
+We got the resulting dataset `final_version`. It has `r nrow(final_version)` rows * `r ncol(final_version)` columns. The year range is from 1947 to 2015. There are some missing values at the last few months in 2015. In addition, there is no `close` data from 1947 to 1949, and no `unemployment` data in 1947. The resulting dataset is merged from the 3 datasets above by `year` and `month`. Variables `gov_gop`, `sen_gop`, `rep_gop`, `gov_dem`, `sen_dem`, `rep_dem`, `president`, `close`, and `unemployment` are retained.
